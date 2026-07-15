@@ -12,6 +12,18 @@ void redNeuronal() {
 
     int n = 5; //Guardar la cantidad de datos iniciales
 
+	cout<<endl;
+	cout << "====DATOS DE ENTRENAMIENTO====" << endl;
+    cout << "  X   |   Y  " << endl;
+    cout << "------------- " << endl;
+    	for(int i = 0; i < n; i++) {
+        	cout << "  " << X[i] << "   |   " << Y[i] << endl;
+    	}
+    cout << "-------------------------------------" << endl<<endl;
+    
+    cout << "=======INICIANDO ENTRENAMIENTO=======" << endl<<endl;
+    
+
     // Parámetros iniciales
     double w = 0.0;
     double b = 0.0;
@@ -46,7 +58,7 @@ void redNeuronal() {
         dw = (2.0/n) * dw; //promedio del gradiente
         db = (2.0/n) * db; //promedio del intercepto
 
-        // Actualización
+        // ActualizaciÃ³n
         w = w - m * dw;
         b = b - m * db;
 		
@@ -59,17 +71,20 @@ void redNeuronal() {
         }
     }
 
-    cout << "\nEntrenamiento finalizado\n";
+    cout <<endl<< "========ENTRENAMIENTO FINALIZADO========"<<endl;
     cout << "Peso (w) = " << w << endl;  // muestra la pendiente final aprendida
     cout << "Bias (b) = " << b << endl;	 // muestra el intercepto final aprendido
-
+	cout << "========================================" << endl;
     // Predicción
     double x;
+	char continuar = 's';
 
-    cout << "\nIngrese un valor de X: ";
-    cin >> x;
-
-    double y = w * x + b;  //calcular la prediccion con los parametros aprendidos
-
-    cout << "Prediccion Y = " << y << endl;
+    while(continuar == 's' || continuar == 'S') {
+        cout << "\nIngrese un valor de X: ";
+        cin >> x;
+        cout << "Prediccion: " << (w * x + b) << endl;
+        
+        cout <<"\n¿Desea probar otro valor? (s/n): ";
+        cin >> continuar;
+    }
 }
