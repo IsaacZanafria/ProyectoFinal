@@ -6,16 +6,16 @@ using namespace std;
 //Ejercicio 5
 void laberinto(){
 	int laberinto[][10] = {		//arreglo bidimensional para el laberinto
-		{1,1,1,1,3,1,1,1,1,1},	// 3 representa el inicio del laberinto
+		{1,1,1,1,2,1,1,1,1,1},	// 2 representa el inicio del laberinto
 		{1,1,1,1,0,0,0,0,1,1},	// 1 representa las paredes del laberinto
 		{1,1,1,0,0,1,1,0,1,1},	// 0 representa los caminos del laberinto
-		{0,0,0,0,1,1,1,0,1,1},	// 2 represneta la salida del laberinto
+		{0,0,0,0,1,1,1,0,1,1},	// 3 represneta la salida del laberinto
 		{1,1,1,0,1,1,1,0,0,1},
 		{1,0,0,0,0,1,1,1,1,1},
 		{1,1,1,1,0,1,1,0,1,1},
 		{1,1,1,1,0,0,0,0,1,1},
 		{1,1,1,1,0,1,1,1,1,1},
-		{1,1,1,0,0,0,0,2,1,1}
+		{1,1,1,0,0,0,0,3,1,1}
 	};
 
 	cout<<"-------------------";
@@ -61,7 +61,7 @@ void imprimir(int lab[][10]) {	//funcion imprimir laberinto
 void buscarInicio(int lab[][10], int &x, int &y) {	//funcion buscar inicio, variables x e y por referencia
     for(int i = 0; i < 10; i++) {	//bucle para recorrer las filas
         for(int j = 0; j < 10; j++) {	//bucle para recorrer las columnas
-            if(lab[i][j] == 3) {	//comprobar si la posicion contiene al inicio
+            if(lab[i][j] == 2) {	//comprobar si la posicion contiene al inicio
                 x = i;				//guardar las posiciones del inicio del laberinto
                 y = j;
                 return;	
@@ -76,10 +76,10 @@ bool resolver(int lab[][10], int x, int y) {	//funcion para resolver el laberint
 	//segundo caso base: pared o camino ya visitado 
     if(lab[x][y] == 1 || lab[x][y] == 4) return false;		
     //tercer caso base: salida encontrada
-    if(lab[x][y] == 2) return true;
+    if(lab[x][y] == 3) return true;
     
     // Marcar como visitado la posicion actual, excepto el inicio
-    if(lab[x][y] != 3)	lab[x][y] = 4;
+    if(lab[x][y] != 2)	lab[x][y] = 4;
 		
 	
 	//====Recursividad====
