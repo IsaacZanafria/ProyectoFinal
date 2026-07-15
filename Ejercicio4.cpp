@@ -9,33 +9,49 @@ void calculadora(){
 	int opcion;
 	double x;
 	
-		cout << "Elige una operacion: " << endl;
+	do{
+		cout<<"\n======CALCULADORA CIENTIFICA======\n";
+//		cout << "Elige una operacion: " << endl;
 		cout << "1.Seno\n2.Coseno\n3.Tangente\n4.Ln(x)\n5.Log10(x)\n0.Salir\n"; //Mostrar el menu de opciones
+		cout << "Eliga una operacion: ";
 		cin >> opcion;
 		
 		if(opcion >= 1 && opcion <= 5){
+			cout<<"--------------------------"<<endl;
 			cout << "Ingrese el valor de x: ";	//Solicitar el valor de x
 			cin >> x; 
 		}
 		
 		switch(opcion){  //Escoger la operacion a realizar
 			case 1:
+				cout<<"\n========== SENO ==========\n";
 				cout << "sen(" << x << ") = " << seno(x) << endl;
 				break; 
 			case 2:
+				cout<<"\n========= COSENO =========\n";
 				cout << "cos(" << x << ") = " << coseno(x) << endl;
 				break;
 			case 3:
+				cout<<"\n======== TANGENTE ========\n";
 				cout << "tan(" << x << ") = " << tangente(x) << endl;
 				break;
 			case 4:
+				cout<<"\n=========== LN ===========\n";
 				cout << "Ln(" << x << ") = " << logNatural(x) << endl;
 				break;
 			case 5:
+				cout<<"\n=========== LOG ===========\n";
 				cout << "Log(" << x << ") = " << log10(x) << endl;
 				break;
-	
-	}
+			case 0:
+    			cout<<"-----------------------------";
+				cout << "\nSaliendo de la calculadora...\n";
+    			break;
+    		default:
+    			cout<<"----------------";
+    			cout<< "\nOpcion Invalida\n";
+		}
+	} while(opcion!=0);
 }
 double potencia(double base, int exp){	//Funcion potencia, recibe como parametros una base y un exponente
     double resultado = 1;	//inicializzar resultado en 1
